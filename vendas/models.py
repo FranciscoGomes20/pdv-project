@@ -29,8 +29,6 @@ class AuditModel(models.Model):
         self.atualizado_por = user
         super().save(*args, **kwargs)
 
-
-
 class Cliente(AuditModel):
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, unique=True)
@@ -41,7 +39,6 @@ class Cliente(AuditModel):
     def __str__(self):
         return self.nome
 
-
 class Produto(AuditModel):
     nome = models.CharField(max_length=100)
     descricao = models.TextField(blank=True, null=True)
@@ -51,7 +48,6 @@ class Produto(AuditModel):
     def __str__(self):
         return self.nome
 
-
 class Venda(AuditModel):
     cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True)
     data_venda = models.DateTimeField(default=timezone.now)
@@ -59,7 +55,6 @@ class Venda(AuditModel):
 
     def __str__(self):
         return f'Venda #{self.pk} - {self.data_venda.strftime("%d/%m/%Y %H:%M")}'
-
 
 class ItemVenda(AuditModel):
     venda = models.ForeignKey(Venda, related_name='itens', on_delete=models.CASCADE)
@@ -72,7 +67,6 @@ class ItemVenda(AuditModel):
 
     def __str__(self):
         return f'{self.quantidade} x {self.produto.nome}'
-
 
 class Fatura(AuditModel):
     venda = models.OneToOneField(Venda, on_delete=models.CASCADE)

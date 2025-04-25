@@ -13,9 +13,7 @@ class ProdutoSerializer(serializers.ModelSerializer):
 
 class ItemVendaSerializer(serializers.ModelSerializer):
     produto = ProdutoSerializer(read_only=True)
-    produto_id = serializers.PrimaryKeyRelatedField(
-        queryset=Produto.objects.all(), source='produto', write_only=True
-    )
+    produto_id = serializers.PrimaryKeyRelatedField(queryset=Produto.objects.all(), source='produto', write_only=True)
 
     class Meta:
         model = ItemVenda
@@ -23,9 +21,7 @@ class ItemVendaSerializer(serializers.ModelSerializer):
 
 class VendaSerializer(serializers.ModelSerializer):
     cliente = ClienteSerializer(read_only=True)
-    cliente_id = serializers.PrimaryKeyRelatedField(
-        queryset=Cliente.objects.all(), source='cliente', write_only=True
-    )
+    cliente_id = serializers.PrimaryKeyRelatedField(queryset=Cliente.objects.all(), source='cliente', write_only=True)
     itens = ItemVendaSerializer(many=True, read_only=True)
 
     class Meta:
