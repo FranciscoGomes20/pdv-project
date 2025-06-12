@@ -30,10 +30,16 @@ cd pdv-project
 ```
 DEBUG=True
 SECRET_KEY=sua-secret-key-aqui
-DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+ALLOWED_HOSTS=localhost 127.0.0.1
 POSTGRES_DB=pdv_db
 POSTGRES_USER=pdv_user
 POSTGRES_PASSWORD=senha123
+
+DB_NAME=pdv
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
 ```
 
 ### 3. Suba os containers:

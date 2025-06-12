@@ -12,6 +12,7 @@ cssselect2==0.8.0
 defusedxml==0.7.1
 Django==5.2
 djangorestframework==3.16.0
+djangorestframework_simplejwt==5.5.0
 gunicorn==23.0.0
 html5lib==1.1
 idna==3.10
@@ -23,6 +24,7 @@ psycopg2-binary==2.9.10
 pycparser==2.22
 pyHanko==0.26.0
 pyhanko-certvalidator==0.26.8
+PyJWT==2.9.0
 pypdf==5.4.0
 python-bidi==0.6.6
 python-decouple==3.8
@@ -39,4 +41,5 @@ tzlocal==5.3.1
 uritools==4.0.3
 urllib3==2.4.0
 webencodings==0.5.1
+whitenoise==6.9.0
 xhtml2pdf==0.2.17

@@ -3,4 +3,3 @@ __pycache__/
 *.pyo
 *.db
 .git
-.env
