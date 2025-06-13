@@ -11,6 +11,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTH_USER_MODEL = 'vendas.Usuario'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
