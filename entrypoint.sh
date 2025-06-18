@@ -11,7 +11,9 @@ done
 echo "PostgreSQL started"
 
 echo "Applying database migrations..."
-python manage.py migrate --noinput
+set -e
+python manage.py migrate
+set +e
 
 echo "Starting Django API with Gunicorn..."
 exec "$@"
