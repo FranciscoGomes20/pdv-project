@@ -1,4 +1,4 @@
-import os
+import os, datetime
 from pathlib import Path
 from decouple import RepositoryEnv, Config
 
@@ -21,9 +21,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework_simplejwt.token_blacklist',
     'rest_framework',
     'vendas',
 ]
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=50),  # Token de acesso válido por 50 minutos
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),   # Token de refresh válido por 1 dias
+    'BLACKLIST_AFTER_ROTATION': True,
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
