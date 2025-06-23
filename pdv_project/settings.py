@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=50),  # Token de acesso válido por 50 minutos
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),   # Token de refresh válido por 1 dias
+    'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
 }
 
