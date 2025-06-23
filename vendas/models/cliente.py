@@ -1,8 +1,10 @@
+import uuid
 from django.db import models
 from .base import BaseModel
 from .empresa import Empresa
 
 class Cliente(BaseModel):
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14)

@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 from ..middleware import get_current_user
+import uuid
+
 
 class TimestampedModel(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
@@ -49,5 +51,7 @@ class AuditModel(models.Model):
         super().save(*args, **kwargs)
 
 class BaseModel(TimestampedModel, SoftDeleteModel, AuditModel):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    
     class Meta:
         abstract = True
